@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: attendance
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      database: ${MONGODB_DATABASE:attendance}
+      auto-index-creation: true
+server:
+  port: 8080
+logging:
+  level:
+    org.springframework.web: INFO
+    com.example.attendance: DEBUG
