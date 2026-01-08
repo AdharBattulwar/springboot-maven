@@ -3,18 +3,19 @@ import axios, { Axios } from "axios";
 import { env } from "../config/env";
 import AttendanceApi from "./attendance";
 import { StudentApi } from "./student";
+import CourseApi from "./course";
 
 class ApiSdk {
   private readonly _axios: Axios;
-  attendance: AttendanceApi
+  attendance: AttendanceApi;
   student: StudentApi;
-  course: any;
+  course: CourseApi;
 
   constructor() {
     this._axios = this.createAxios(env.NEXT_PUBLIC_PLATFORM_API_URL);
     this.attendance = new AttendanceApi(this._axios);
     this.student = new StudentApi(this._axios);
-
+    this.course = new CourseApi(this._axios);
   }
 
   private createAxios(url: string): Axios {
